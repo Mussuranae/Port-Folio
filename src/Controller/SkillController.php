@@ -44,17 +44,7 @@ class SkillController extends AbstractController
 
         return $this->render('AdminInterface/skill/new.html.twig', [
             'skill' => $skill,
-            'form' => $form->createView(),
-        ]);
-    }
-
-    /**
-     * @Route("/{id}", name="skill_show", methods={"GET"})
-     */
-    public function show(Skill $skill): Response
-    {
-        return $this->render('AdminInterface/skill/show.html.twig', [
-            'skill' => $skill,
+            'formSkill' => $form->createView(),
         ]);
     }
 
@@ -74,7 +64,7 @@ class SkillController extends AbstractController
 
         return $this->render('AdminInterface/skill/edit.html.twig', [
             'skill' => $skill,
-            'form' => $form->createView(),
+            'formSkill' => $form->createView(),
         ]);
     }
 

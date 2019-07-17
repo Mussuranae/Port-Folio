@@ -1,13 +1,13 @@
 {% extends 'baseAdmin.html.twig' %}
 
-{% block title %}Edit Skill{% endblock %}
+{% block title %}PF Skill{% endblock %}
 
 {% block body %}
-    <h1>Edit Skill</h1>
+    <h1>Modifier les compétences</h1>
 
-    {{ include('AdminInterface/skill/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('AdminInterface/skill/_form.html.twig', {'button_label': 'Modifier'}) }}
 
-    <a href="{{ path('skill_index') }}">back to list</a>
+    <a href="{{ path('skill_index') }}" class="waves-effect waves-light btn-small">Retour</a>
 
     {{ include('AdminInterface/skill/_delete_form.html.twig') }}
 {% endblock %}

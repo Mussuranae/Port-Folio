@@ -1,17 +1,17 @@
 {% extends 'baseAdmin.html.twig' %}
 
-{% block title %}Skill index{% endblock %}
+{% block title %}PF Skill{% endblock %}
 
 {% block body %}
-    <h1>Skill index</h1>
+    <h1>Compétences</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Name</th>
+                <th>Nom</th>
                 <th>Type</th>
-                <th>actions</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -21,17 +21,16 @@
                 <td>{{ skill.name }}</td>
                 <td>{{ skill.type }}</td>
                 <td>
-                    <a href="{{ path('skill_show', {'id': skill.id}) }}">show</a>
-                    <a href="{{ path('skill_edit', {'id': skill.id}) }}">edit</a>
+                    <a href="{{ path('skill_edit', {'id': skill.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="4">Aucune compétence enregistrée</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('skill_new') }}">Create new</a>
+    <a href="{{ path('skill_new') }}" class="waves-effect waves-light btn-small">Nouveau</a>
 {% endblock %}
