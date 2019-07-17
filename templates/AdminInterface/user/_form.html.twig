@@ -1,4 +1,74 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <a class="waves-effect waves-light btn-small">{{ button_label|default('Save') }}</a>
-{{ form_end(form) }}
+{{ form_start(formUser) }}
+
+    <div class="row">
+        <div class="col s4">
+            {{ form_label(formUser.firstname, 'Prénom') }}
+            {{ form_widget(formUser.firstname) }}
+        </div>
+        <div class="col s4">
+            {{ form_label(formUser.lastname, 'Nom') }}
+            {{ form_widget(formUser.lastname) }}
+        </div>
+        <div class="col s4">
+            {{ form_label(formUser.phoneNumber, 'Téléphone') }}
+            {{ form_widget(formUser.phoneNumber) }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s6">
+            {{ form_label(formUser.email, 'Email') }}
+            {{ form_widget(formUser.email) }}
+        </div>
+        <div class="col s6">
+            {{ form_label(formUser.role, 'Rôle de l\'utilisateur') }}
+            {{ form_widget(formUser.role) }}
+        </div>
+    </div>
+
+    <div class="row">
+        {{ form_label(formUser.introduction, 'Présentation') }}
+        {{ form_widget(formUser.introduction) }}
+    </div>
+
+    <div class="row">
+        {{ form_label(formUser.interest, 'Centres d\'intérêt') }}
+        {{ form_widget(formUser.interest) }}
+    </div>
+
+    <div class="row">
+        <div class="col s4">
+            {{ form_label(formUser.address, 'Adresse') }}
+            {{ form_widget(formUser.address) }}
+        </div>
+        <div class="col s4">
+            {{ form_label(formUser.zipCode, 'Code postal') }}
+            {{ form_widget(formUser.zipCode) }}
+        </div>
+        <div class="col s4">
+            {{ form_label(formUser.city, 'Ville') }}
+            {{ form_widget(formUser.city) }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s6">
+            {{ form_label(formUser.gitHubLink, 'Lien GitHub') }}
+            {{ form_widget(formUser.gitHubLink) }}
+        </div>
+        <div class="col s6">
+            {{ form_label(formUser.linkedinLink, 'Lien LinkedIn') }}
+            {{ form_widget(formUser.linkedinLink) }}
+        </div>
+    </div>
+
+    <div class="row">
+        {{ form_label(formUser.password, 'Mot de passe') }}
+        {{ form_widget(formUser.password) }}
+    </div>
+
+    <a class="waves-effect waves-light btn-small">{{ button_label|default('Enregistrer') }}</a>
+
+{{ form_end(formUser) }}
+
+
