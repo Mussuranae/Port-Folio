@@ -1,0 +1,42 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}PF Education{% endblock %}
+
+{% block body %}
+    <h1>Formation</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ education.id }}</td>
+            </tr>
+            <tr>
+                <th>Ecole</th>
+                <td>{{ education.school }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ education.title }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ education.description }}</td>
+            </tr>
+            <tr>
+                <th>Date de début</th>
+                <td>{{ education.beginDate ? education.beginDate|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Date de fin</th>
+                <td>{{ education.endDate ? education.endDate|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('education_index') }}" class="waves-effect waves-light btn-small">Retour</a>
+
+    <a href="{{ path('education_edit', {'id': education.id}) }}" class="waves-effect waves-light btn-small">Modifier</a>
+
+    {{ include('education/_delete_form.html.twig') }}
+{% endblock %}

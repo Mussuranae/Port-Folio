@@ -1,0 +1,13 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}PF User{% endblock %}
+
+{% block body %}
+    <h1>Modification d'un utilisateur</h1>
+
+    {{ include('AdminInterface/user/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+    <a href="{{ path('user_index') }}" class="waves-effect waves-light btn-small">Retour</a>
+
+    {{ include('AdminInterface/user/_delete_form.html.twig') }}
+{% endblock %}

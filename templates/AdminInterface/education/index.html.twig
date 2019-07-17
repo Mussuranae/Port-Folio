@@ -1,0 +1,43 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}PF Education{% endblock %}
+
+{% block body %}
+    <h1>Formations</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Ecole</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Date de début</th>
+                <th>Date de fin</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for education in education %}
+            <tr>
+                <td>{{ education.id }}</td>
+                <td>{{ education.school }}</td>
+                <td>{{ education.title }}</td>
+                <td>{{ education.description }}</td>
+                <td>{{ education.beginDate ? education.beginDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ education.endDate ? education.endDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('education_show', {'id': education.id}) }}" class="waves-effect waves-light btn-small">Voir</a>
+                    <a href="{{ path('education_edit', {'id': education.id}) }}" class="waves-effect waves-light btn-small">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">Aucune formation enregistrée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('education_new') }}" class="waves-effect waves-light btn-small">Nouveau</a>
+{% endblock %}
