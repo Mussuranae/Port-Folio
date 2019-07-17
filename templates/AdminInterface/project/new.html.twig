@@ -1,11 +1,11 @@
 {% extends 'baseAdmin.html.twig' %}
 
-{% block title %}New Project{% endblock %}
+{% block title %}PF Project{% endblock %}
 
 {% block body %}
-    <h1>Create new Project</h1>
+    <h1>Création d'un projet</h1>
 
     {{ include('AdminInterface/project/_form.html.twig') }}
 
-    <a href="{{ path('project_index') }}">back to list</a>
+    <a href="{{ path('project_index') }}" class="waves-effect waves-light btn-small">Retour</a>
 {% endblock %}
