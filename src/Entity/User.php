@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -87,6 +89,16 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $linkedinLink;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Education", mappedBy="userId", orphanRemoval=true)
+     */
+    private $education;
+
+    public function __construct()
+    {
+        $this->education = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -294,6 +306,37 @@ class User implements UserInterface
     public function setLinkedinLink(?string $linkedinLink): self
     {
         $this->linkedinLink = $linkedinLink;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Education[]
+     */
+    public function getEducation(): Collection
+    {
+        return $this->education;
+    }
+
+    public function addEducation(Education $education): self
+    {
+        if (!$this->education->contains($education)) {
+            $this->education[] = $education;
+            $education->setUserId($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEducation(Education $education): self
+    {
+        if ($this->education->contains($education)) {
+            $this->education->removeElement($education);
+            // set the owning side to null (unless already changed)
+            if ($education->getUserId() === $this) {
+                $education->setUserId(null);
+            }
+        }
 
         return $this;
     }
