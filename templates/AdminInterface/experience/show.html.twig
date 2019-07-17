@@ -1,9 +1,9 @@
 {% extends 'baseAdmin.html.twig' %}
 
-{% block title %}Experience{% endblock %}
+{% block title %}PF Experience{% endblock %}
 
 {% block body %}
-    <h1>Experience</h1>
+    <h1>Expériences professionnelles</h1>
 
     <table class="table">
         <tbody>
@@ -12,11 +12,11 @@
                 <td>{{ experience.id }}</td>
             </tr>
             <tr>
-                <th>Company</th>
+                <th>Entreprise</th>
                 <td>{{ experience.company }}</td>
             </tr>
             <tr>
-                <th>Post</th>
+                <th>Poste</th>
                 <td>{{ experience.post }}</td>
             </tr>
             <tr>
@@ -24,19 +24,19 @@
                 <td>{{ experience.description }}</td>
             </tr>
             <tr>
-                <th>BeginDate</th>
+                <th>Date de début</th>
                 <td>{{ experience.beginDate ? experience.beginDate|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
             <tr>
-                <th>EndDate</th>
+                <th>Date de fin</th>
                 <td>{{ experience.endDate ? experience.endDate|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('experience_index') }}">back to list</a>
+    <a href="{{ path('experience_index') }}" class="waves-effect waves-light btn-small">Retour</a>
 
-    <a href="{{ path('experience_edit', {'id': experience.id}) }}">edit</a>
+    <a href="{{ path('experience_edit', {'id': experience.id}) }}" class="waves-effect waves-light btn-small">Modifier</a>
 
     {{ include('experience/_delete_form.html.twig') }}
 {% endblock %}
