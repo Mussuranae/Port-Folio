@@ -95,9 +95,15 @@ class User implements UserInterface
      */
     private $education;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Experience", mappedBy="userId", orphanRemoval=true)
+     */
+    private $experiences;
+
     public function __construct()
     {
         $this->education = new ArrayCollection();
+        $this->experiences = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -335,6 +341,37 @@ class User implements UserInterface
             // set the owning side to null (unless already changed)
             if ($education->getUserId() === $this) {
                 $education->setUserId(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Experience[]
+     */
+    public function getExperiences(): Collection
+    {
+        return $this->experiences;
+    }
+
+    public function addExperience(Experience $experience): self
+    {
+        if (!$this->experiences->contains($experience)) {
+            $this->experiences[] = $experience;
+            $experience->setUserId($this);
+        }
+
+        return $this;
+    }
+
+    public function removeExperience(Experience $experience): self
+    {
+        if ($this->experiences->contains($experience)) {
+            $this->experiences->removeElement($experience);
+            // set the owning side to null (unless already changed)
+            if ($experience->getUserId() === $this) {
+                $experience->setUserId(null);
             }
         }
 
