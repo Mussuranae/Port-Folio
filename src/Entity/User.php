@@ -105,11 +105,17 @@ class User implements UserInterface
      */
     private $projects;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Skill", mappedBy="userId", orphanRemoval=true)
+     */
+    private $skills;
+
     public function __construct()
     {
         $this->education = new ArrayCollection();
         $this->experiences = new ArrayCollection();
         $this->projects = new ArrayCollection();
+        $this->skills = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -409,6 +415,37 @@ class User implements UserInterface
             // set the owning side to null (unless already changed)
             if ($project->getUserId() === $this) {
                 $project->setUserId(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Skill[]
+     */
+    public function getSkills(): Collection
+    {
+        return $this->skills;
+    }
+
+    public function addSkill(Skill $skill): self
+    {
+        if (!$this->skills->contains($skill)) {
+            $this->skills[] = $skill;
+            $skill->setUserId($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSkill(Skill $skill): self
+    {
+        if ($this->skills->contains($skill)) {
+            $this->skills->removeElement($skill);
+            // set the owning side to null (unless already changed)
+            if ($skill->getUserId() === $this) {
+                $skill->setUserId(null);
             }
         }
 

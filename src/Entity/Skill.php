@@ -26,6 +26,12 @@ class Skill
      */
     private $type;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="skills")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $userId;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -51,6 +57,18 @@ class Skill
     public function setType(string $type): self
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+    public function getUserId(): ?User
+    {
+        return $this->userId;
+    }
+
+    public function setUserId(?User $userId): self
+    {
+        $this->userId = $userId;
 
         return $this;
     }
