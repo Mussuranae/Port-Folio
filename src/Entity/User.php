@@ -66,11 +66,6 @@ class User implements UserInterface
     private $phoneNumber;
 
     /**
-     * @ORM\Column(type="string", length=100)
-     */
-    private $role;
-
-    /**
      * @ORM\Column(type="text", nullable=true)
      */
     private $introduction;
@@ -264,18 +259,6 @@ class User implements UserInterface
     public function setPhoneNumber(?string $phoneNumber): self
     {
         $this->phoneNumber = $phoneNumber;
-
-        return $this;
-    }
-
-    public function getRole(): ?string
-    {
-        return $this->role;
-    }
-
-    public function setRole(string $role): self
-    {
-        $this->role = $role;
 
         return $this;
     }
