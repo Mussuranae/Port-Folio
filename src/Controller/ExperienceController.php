@@ -44,7 +44,7 @@ class ExperienceController extends AbstractController
 
         return $this->render('AdminInterface/experience/new.html.twig', [
             'experience' => $experience,
-            'form' => $form->createView(),
+            'formXP' => $form->createView(),
         ]);
     }
 
@@ -74,7 +74,7 @@ class ExperienceController extends AbstractController
 
         return $this->render('AdminInterface/experience/edit.html.twig', [
             'experience' => $experience,
-            'form' => $form->createView(),
+            'formXP' => $form->createView(),
         ]);
     }
 

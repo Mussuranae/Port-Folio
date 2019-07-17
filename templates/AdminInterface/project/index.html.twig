@@ -1,20 +1,18 @@
 {% extends 'baseAdmin.html.twig' %}
 
-{% block title %}Project index{% endblock %}
+{% block title %}PF Project{% endblock %}
 
 {% block body %}
-    <h1>Project index</h1>
+    <h1>Projets</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Title</th>
-                <th>Technology</th>
-                <th>Description</th>
-                <th>Picture</th>
-                <th>GitHubLink</th>
-                <th>actions</th>
+                <th>Titre</th>
+                <th>Technologies</th>
+                <th>Lien GitHub</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -23,21 +21,19 @@
                 <td>{{ project.id }}</td>
                 <td>{{ project.title }}</td>
                 <td>{{ project.technology }}</td>
-                <td>{{ project.description }}</td>
-                <td>{{ project.picture }}</td>
                 <td>{{ project.gitHubLink }}</td>
                 <td>
-                    <a href="{{ path('project_show', {'id': project.id}) }}">show</a>
-                    <a href="{{ path('project_edit', {'id': project.id}) }}">edit</a>
+                    <a href="{{ path('project_show', {'id': project.id}) }}" class="waves-effect waves-light btn-small">Voir</a>
+                    <a href="{{ path('project_edit', {'id': project.id}) }}" class="waves-effect waves-light btn-small">Modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="7">no records found</td>
+                <td colspan="7">Aucun projet enregistré</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('project_new') }}">Create new</a>
+    <a href="{{ path('project_new') }}" class="waves-effect waves-light btn-small">Nouveau</a>
 {% endblock %}
