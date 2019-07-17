@@ -4,6 +4,9 @@ namespace App\Form;
 
 use App\Entity\Education;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -14,10 +17,10 @@ class EducationType extends AbstractType
         $builder
             ->add('school')
             ->add('title')
-            ->add('description')
-            ->add('beginDate')
-            ->add('endDate')
-            ->add('userId')
+            ->add('description', TextareaType::class)
+            ->add('beginDate', DateType::class, [ 'widget' => 'single_text'])
+            ->add('endDate', DateType::class, [ 'widget' => 'single_text'])
+            ->add('userId', HiddenType::class)
         ;
     }
 

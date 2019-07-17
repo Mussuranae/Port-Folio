@@ -1,9 +1,9 @@
 {% extends 'baseAdmin.html.twig' %}
 
-{% block title %}Education{% endblock %}
+{% block title %}PF Education{% endblock %}
 
 {% block body %}
-    <h1>Education</h1>
+    <h1>Formation</h1>
 
     <table class="table">
         <tbody>
@@ -12,11 +12,11 @@
                 <td>{{ education.id }}</td>
             </tr>
             <tr>
-                <th>School</th>
+                <th>Ecole</th>
                 <td>{{ education.school }}</td>
             </tr>
             <tr>
-                <th>Title</th>
+                <th>Titre</th>
                 <td>{{ education.title }}</td>
             </tr>
             <tr>
@@ -24,19 +24,19 @@
                 <td>{{ education.description }}</td>
             </tr>
             <tr>
-                <th>BeginDate</th>
+                <th>Date de début</th>
                 <td>{{ education.beginDate ? education.beginDate|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
             <tr>
-                <th>EndDate</th>
+                <th>Date de fin</th>
                 <td>{{ education.endDate ? education.endDate|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('education_index') }}">back to list</a>
+    <a href="{{ path('education_index') }}" class="waves-effect waves-light btn-small">Retour</a>
 
-    <a href="{{ path('education_edit', {'id': education.id}) }}">edit</a>
+    <a href="{{ path('education_edit', {'id': education.id}) }}" class="waves-effect waves-light btn-small">Modifier</a>
 
     {{ include('education/_delete_form.html.twig') }}
 {% endblock %}

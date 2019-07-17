@@ -44,7 +44,7 @@ class EducationController extends AbstractController
 
         return $this->render('AdminInterface/education/new.html.twig', [
             'education' => $education,
-            'form' => $form->createView(),
+            'formEducation' => $form->createView(),
         ]);
     }
 
@@ -74,7 +74,7 @@ class EducationController extends AbstractController
 
         return $this->render('AdminInterface/education/edit.html.twig', [
             'education' => $education,
-            'form' => $form->createView(),
+            'formEducation' => $form->createView(),
         ]);
     }
 
