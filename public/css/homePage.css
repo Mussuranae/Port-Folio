@@ -6,8 +6,8 @@ p {
 }
 
 .pictureBackground {
-    background-image: url("/public/Picture/SpiderWeb.jpg");
+    background-image: url("/Picture/SpiderWeb.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    min-height: 300px;
+    height: 350px;
 }
