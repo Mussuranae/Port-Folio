@@ -18,29 +18,40 @@
 
     <div class="container">
         <div class="row descriptionPart">
-            <h4>A PROPOS</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <div class="col s12">
+                <h4>A PROPOS</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                    sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
         </div>
 
         <div class="row">
             <div class="col s12">
                 <ul class="tabs">
-                    <li class="tab col s4"><a href="#onglet1">Formations</a></li>
-                    <li class="tab col s4"><a href="#onglet2">Expériences Professionnelles</a></li>
-                    <li class="tab col s4"><a href="#onglet3">Projets</a></li>
+                    <li class="tab col s3"><a href="#Education" class="active">Formations</a></li>
+                    <li class="tab col s3"><a href="#Experience">Expériences Professionnelles</a></li>
+                    <li class="tab col s3"><a href="#Projects">Projets</a></li>
+                    <li class="tab col s3"><a href="#Skills">Compétences</a></li>
                 </ul>
             </div>
-            <div id="onglet1" class="col s12">Test 1</div>
-            <div id="onglet2" class="col s12">Test 2</div>
-            <div id="onglet3" class="col s12">Test 3</div>
+            <div id="Education" class="col s12">
+                Test 1
+            </div>
+            <div id="Experience" class="col s12">Test 2</div>
+            <div id="Projects" class="col s12">Test 3</div>
+            <div id="Skills" class="col s12">Test 4</div>
         </div>
     </div>
 
 {% endblock %}
 
 {% block javascripts %}
-    <script type="text/javascript" src="/js/homePage.js"></script>
+    <script>
+        let instance = M.Tabs.init(tabs, swipeable = true);
+        console.log(nstace)
+        instance = M.Tabs.getInstance(tabs);
+    </script>
+{#    <script type="text/javascript" src="/js/homePage.js"></script>#}
 {% endblock %}
