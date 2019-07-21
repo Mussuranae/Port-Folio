@@ -23,7 +23,7 @@
         {% for user in users %}
             <tr>
                 <td>{{ user.id }}</td>
-                <td>{{ user.role }}</td>
+                <td>{{ user.roles }}</td>
                 <td>{{ user.email }}</td>
                 <td>{{ user.firstname }}</td>
                 <td>{{ user.lastname }}</td>
@@ -31,8 +31,8 @@
                 <td>{{ user.gitHubLink }}</td>
                 <td>{{ user.linkedinLink }}</td>
                 <td>
-                    <a href="{{ path('user_show', {'id': user.id}) }}" class="waves-effect waves-light btn-small">Voir</a>
-                    <a href="{{ path('user_edit', {'id': user.id}) }}" class="waves-effect waves-light btn-small">Modifier</a>
+                    <a href="{{ path('user_show', {'id': user.id}) }}" class="waves-effect waves-light btn-small blue lighten-2">Voir</a>
+                    <a href="{{ path('user_edit', {'id': user.id}) }}" class="waves-effect waves-light btn-small blue lighten-2">Modifier</a>
                 </td>
             </tr>
         {% else %}
@@ -43,5 +43,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('user_new') }}" class="waves-effect waves-light btn-small">Nouveau</a>
+    <a href="{{ path('user_new') }}" class="waves-effect waves-light btn-small blue lighten-2">Nouveau</a>
 {% endblock %}

@@ -35,6 +35,8 @@ class SkillController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $skill->setUserId($this->getUser());
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($skill);
             $entityManager->flush();
