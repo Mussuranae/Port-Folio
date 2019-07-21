@@ -39,12 +39,21 @@
 
             <div id="Education" class="col s12">
                 <ul class="collection">
-                    <li class="collection-item">Education 1</li>
-                    <li class="collection-item">Education 2</li>
-                    <li class="collection-item">Education 3</li>
-                    <li class="collection-item">Education 4</li>
+                    {% for education in educations %}
+                    <li class="collection-item">
+                        <h5>{{ education.title }}</h5>
+                        <div class="row">
+                            <div class="col s12">
+                                <p class="schoolName">{{ education.school }}</p>
+                                <p class="educationDate"> {{ education.beginDate ? education.beginDate|date('M Y') : '' }} - {{ education.endDate ? education.endDate|date('M Y') : '' }}</p>
+                                <p>{{ education.description }}</p>
+                            </div>
+                        </div>
+                    </li>
+                    {% endfor %}
                 </ul>
             </div>
+
 
             <div id="Experience" class="col s12">
                 <div class="row">

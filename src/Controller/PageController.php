@@ -2,8 +2,14 @@
 
 namespace App\Controller;
 
+use App\Repository\SkillRepository;
+use App\Repository\ProjectRepository;
+use App\Repository\EducationRepository;
+use App\Repository\ExperienceRepository;
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+
 
 
 class PageController extends AbstractController
@@ -19,9 +25,25 @@ class PageController extends AbstractController
     /**
      * @Route("/", name="home_index", methods={"GET"})
      */
-    public function userIndex()
+    public function userIndex(
+        EducationRepository $educationRepository,
+        ExperienceRepository $experienceRepository,
+        ProjectRepository $projectRepository,
+        SkillRepository $skillRepository
+    )
     {
-        return $this->render('UserInterface/homePage.html.twig');
+        $education = $educationRepository->findAll();
+        $experience = $experienceRepository->findAll();
+        $project = $projectRepository->findAll();
+        $skill = $skillRepository->findAll();
+
+        return $this->render('UserInterface/homePage.html.twig',
+            [
+                'educations' => $education,
+                'experiences' => $experience,
+                'projects' => $project,
+                'skills' => $skill
+            ]);
     }
 
 }

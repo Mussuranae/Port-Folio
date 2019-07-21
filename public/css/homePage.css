@@ -16,3 +16,11 @@ p {
 .descriptionPart {
     text-align: center;
 }
+
+.schoolName {
+    font-weight: bold;
+}
+
+.educationDate {
+    font-style: italic;
+}
