@@ -25,11 +25,11 @@
             </tr>
             <tr>
                 <th>Date de début</th>
-                <td>{{ experience.beginDate ? experience.beginDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ experience.beginDate ? experience.beginDate|date('d M Y') : '' }}</td>
             </tr>
             <tr>
                 <th>Date de fin</th>
-                <td>{{ experience.endDate ? experience.endDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ experience.endDate ? experience.endDate|date('d M Y') : '' }}</td>
             </tr>
         </tbody>
     </table>

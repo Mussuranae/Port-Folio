@@ -25,11 +25,11 @@
             </tr>
             <tr>
                 <th>Date de début</th>
-                <td>{{ education.beginDate ? education.beginDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ education.beginDate ? education.beginDate|date('d M Y') : '' }}</td>
             </tr>
             <tr>
                 <th>Date de fin</th>
-                <td>{{ education.endDate ? education.endDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ education.endDate ? education.endDate|date('d M Y') : '' }}</td>
             </tr>
         </tbody>
     </table>
