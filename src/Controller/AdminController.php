@@ -15,4 +15,7 @@ class AdminController extends AbstractController
     {
         return $this->render('baseAdmin.html.twig');
     }
+
+    public function login() {}
+
 }
