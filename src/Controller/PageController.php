@@ -7,6 +7,7 @@ use App\Repository\ProjectRepository;
 use App\Repository\EducationRepository;
 use App\Repository\ExperienceRepository;
 
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -16,6 +17,7 @@ class PageController extends AbstractController
 {
     /**
      * @Route("/admin", name="admin_index", methods={"GET"})
+     * @IsGranted("ROLE_DEV")
      */
     public function adminIndex()
     {
