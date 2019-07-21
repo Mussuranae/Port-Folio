@@ -23,8 +23,8 @@
                 <td>{{ project.technology }}</td>
                 <td>{{ project.gitHubLink }}</td>
                 <td>
-                    <a href="{{ path('project_show', {'id': project.id}) }}" class="waves-effect waves-light btn-small">Voir</a>
-                    <a href="{{ path('project_edit', {'id': project.id}) }}" class="waves-effect waves-light btn-small">Modifier</a>
+                    <a href="{{ path('project_show', {'id': project.id}) }}" class="waves-effect waves-light btn-small blue lighten-2">Voir</a>
+                    <a href="{{ path('project_edit', {'id': project.id}) }}" class="waves-effect waves-light btn-small blue lighten-2">Modifier</a>
                 </td>
             </tr>
         {% else %}
@@ -35,5 +35,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('project_new') }}" class="waves-effect waves-light btn-small">Nouveau</a>
+    <a href="{{ path('project_new') }}" class="waves-effect waves-light btn-small blue lighten-2">Nouveau</a>
 {% endblock %}

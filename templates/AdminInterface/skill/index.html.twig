@@ -21,7 +21,7 @@
                 <td>{{ skill.name }}</td>
                 <td>{{ skill.type }}</td>
                 <td>
-                    <a href="{{ path('skill_edit', {'id': skill.id}) }}">Modifier</a>
+                    <a href="{{ path('skill_edit', {'id': skill.id}) }}" class="waves-effect waves-light btn-small blue lighten-2">Modifier</a>
                 </td>
             </tr>
         {% else %}
@@ -32,5 +32,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('skill_new') }}" class="waves-effect waves-light btn-small">Nouveau</a>
+    <a href="{{ path('skill_new') }}" class="waves-effect waves-light btn-small blue lighten-2">Nouveau</a>
 {% endblock %}
