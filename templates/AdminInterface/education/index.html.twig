@@ -22,8 +22,8 @@
                 <td>{{ education.id }}</td>
                 <td>{{ education.school }}</td>
                 <td>{{ education.title }}</td>
-                <td>{{ education.beginDate ? education.beginDate|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ education.endDate ? education.endDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ education.beginDate ? education.beginDate|date('d M Y') : '' }}</td>
+                <td>{{ education.endDate ? education.endDate|date('d M Y') : '' }}</td>
                 <td>
                     <a href="{{ path('education_show', {'id': education.id}) }}" class="waves-effect waves-light btn-small blue lighten-2">Voir</a>
                     <a href="{{ path('education_edit', {'id': education.id}) }}" class="waves-effect waves-light btn-small blue lighten-2">Modifier</a>
