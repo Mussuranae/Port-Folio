@@ -1,0 +1,26 @@
+h1, h3 {
+    font-family: 'Roboto', sans-serif;
+}
+p {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.pictureBackground {
+    background-image: url("/Picture/SpiderWeb.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 250px;
+    text-align: center;
+}
+
+.descriptionPart {
+    text-align: center;
+}
+
+.schoolName {
+    font-weight: bold;
+}
+
+.educationDate {
+    font-style: italic;
+}

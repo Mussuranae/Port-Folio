@@ -24,7 +24,6 @@ class UserType extends AbstractType
             ->add('zipCode', IntegerType::class)
             ->add('city')
             ->add('phoneNumber')
-            ->add('role')
             ->add('introduction', TextareaType::class)
             ->add('interest', TextareaType::class)
             ->add('gitHubLink')
