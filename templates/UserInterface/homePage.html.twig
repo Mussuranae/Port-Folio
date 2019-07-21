@@ -1,0 +1,133 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+
+{% endblock %}
+
+{% block body %}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col s12 pictureBackground">
+                <h1>Clélia MANDONNET</h1>
+                <h4>Développeuse Web Junior PHP/Symfony</h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row descriptionPart">
+            <div class="col s12">
+                <h4>A PROPOS</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                    sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col s12">
+                <ul class="tabs">
+                    <li class="tab col s3"><a href="#Education" class="active blue-text text-darken-2">Formations</a></li>
+                    <li class="tab col s3"><a href="#Experience" class="blue-text text-darken-2">Expériences Professionnelles</a></li>
+                    <li class="tab col s3"><a href="#Projects" class="blue-text text-darken-2">Projets</a></li>
+                    <li class="tab col s3"><a href="#Skills" class="blue-text text-darken-2">Compétences</a></li>
+                </ul>
+            </div>
+
+            <div id="Education" class="col s12">
+                <ul class="collection">
+                    {% for education in educations %}
+                    <li class="collection-item">
+                        <h5>{{ education.title }}</h5>
+                        <div class="row">
+                            <div class="col s12">
+                                <p class="schoolName">{{ education.school }}</p>
+                                <p class="educationDate"> {{ education.beginDate ? education.beginDate|date('M Y') : '' }} - {{ education.endDate ? education.endDate|date('M Y') : '' }}</p>
+                                <p>{{ education.description }}</p>
+                            </div>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+
+            <div id="Experience" class="col s12">
+                <div class="row">
+
+                    <div class="col s6">
+                        <div class="card horizontal">
+                            <div class="card-image">
+                                <img src="https://lorempixel.com/150/250/nature/6">
+                            </div>
+                            <div class="card-stacked">
+                                <div class="card-content">
+                                    <h5>Titre du poste</h5>
+                                    <p>I am a very simple card. I am good at containing small bits of information.</p>
+                                </div>
+                                <div class="card-action">
+                                    <p>Date de l'emploi</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col s6 offset-s6">
+                        <div class="card horizontal">
+                            <div class="card-stacked">
+                                <div class="card-content">
+                                    <h5>Titre du poste</h5>
+                                    <p>I am a very simple card. I am good at containing small bits of information.</p>
+                                </div>
+                                <div class="card-action">
+                                    <p>Date de l'emploi</p>
+                                </div>
+                            </div>
+                            <div class="card-image">
+                                <img src="https://lorempixel.com/100/190/nature/6">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col s6">
+                        <div class="card horizontal">
+                            <div class="card-stacked">
+                                <div class="card-content">
+                                    <h5>Titre du poste</h5>
+                                    <p>I am a very simple card. I am good at containing small bits of information.</p>
+                                </div>
+                                <div class="card-action">
+                                    <p>Date de l'emploi</p>
+                                </div>
+                            </div>
+                            <div class="card-image">
+                                <img src="https://lorempixel.com/100/190/nature/6">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div id="Projects" class="col s12">Test 3</div>
+            <div id="Skills" class="col s12">Test 4</div>
+        </div>
+    </div>
+
+
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-large red">
+            <i class="large material-icons">mode_edit</i>
+        </a>
+        <ul>
+            <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
+            <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
+            <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
+            <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+        </ul>
+    </div>
+
+{% endblock %}
+
