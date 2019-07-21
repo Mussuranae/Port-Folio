@@ -35,6 +35,8 @@ class ExperienceController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $experience->setUserId($this->getUser());
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($experience);
             $entityManager->flush();
@@ -67,6 +69,7 @@ class ExperienceController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('experience_index');

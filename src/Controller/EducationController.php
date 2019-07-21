@@ -35,6 +35,8 @@ class EducationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $education->setUserId($this->getUser());
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($education);
             $entityManager->flush();
