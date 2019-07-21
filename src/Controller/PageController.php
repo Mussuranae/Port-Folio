@@ -6,16 +6,22 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
 
-class AdminController extends AbstractController
+class PageController extends AbstractController
 {
     /**
      * @Route("/admin", name="admin_index", methods={"GET"})
      */
-    public function index()
+    public function adminIndex()
     {
         return $this->render('baseAdmin.html.twig');
     }
 
-    public function login() {}
+    /**
+     * @Route("/", name="home_index", methods={"GET"})
+     */
+    public function userIndex()
+    {
+        return $this->render('UserInterface/homePage.html.twig');
+    }
 
 }
