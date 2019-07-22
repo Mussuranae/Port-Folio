@@ -19,6 +19,19 @@ class ExperienceRepository extends ServiceEntityRepository
         parent::__construct($registry, Experience::class);
     }
 
+    public function allOrderByDate()
+    {
+        $queryBuilder = $this->createQueryBuilder('e')
+            ->orderBy('e.endDate', 'DESC')
+            ->getQuery();
+
+        return $queryBuilder->execute();
+    }
+
+
+
+
+
     // /**
     //  * @return Experience[] Returns an array of Experience objects
     //  */

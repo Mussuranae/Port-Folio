@@ -11,8 +11,8 @@ require('../css/homePage.css');
 // Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
 // const $ = require('jquery');
 
-// let instance = M.Tabs.init('tabs', 'swipeable' = true);
-let instance = M.Tabs.getInstance(elem);
+let instance = M.Tabs.init('tabs', swipeable = true);
+// let instance = M.Tabs.getInstance(elem);
 
 // Go read this Materialize page doc for tabs
 // https://materializecss.com/tabs.html
