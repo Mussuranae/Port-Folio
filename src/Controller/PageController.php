@@ -9,6 +9,7 @@ use App\Repository\ExperienceRepository;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 
@@ -34,8 +35,8 @@ class PageController extends AbstractController
         SkillRepository $skillRepository
     )
     {
-        $education = $educationRepository->findAll();
-        $experience = $experienceRepository->findAll();
+        $education = $educationRepository->allOrderByDate();
+        $experience = $experienceRepository->allOrderByDate();
         $project = $projectRepository->findAll();
         $skill = $skillRepository->findAll();
 
@@ -46,6 +47,35 @@ class PageController extends AbstractController
                 'projects' => $project,
                 'skills' => $skill
             ]);
+    }
+
+    /**
+$     * @Route("/contact", name="contact_form")
+     */
+    public function contactForm(Request $request, \Swift_Mailer $mailer)
+    {
+        if ($request->getMethod() == 'POST') {
+            $nom = $request->request->get('lastname');
+            $prenom = $request->request->get('firstname');
+            $from = $request->request->get('email');
+            $title = $request->request->get('title');
+            $contactMessage = $request->request->get('message');
+
+            $message = (new \Swift_Message($title))
+                ->setFrom('mandonnetdev@outlook.com')
+                ->setTo('mandonnetdev@outlook.com')
+                ->setReplyTo($from)
+                ->setBody("Mail de $nom  $prenom ($from)
+                Message : 
+                $contactMessage");
+
+            $mailer->send($message);
+            $this->addFlash('notice', "Votre message a bien été envoyé.");
+
+            return $this->redirectToRoute('contact_form');
+        }
+
+        return $this->render('UserInterface/contact.html.twig');
     }
 
 }

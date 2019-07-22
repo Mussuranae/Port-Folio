@@ -17,10 +17,15 @@ p {
     text-align: center;
 }
 
-.schoolName {
+.boldText {
     font-weight: bold;
 }
 
-.educationDate {
+.italicText {
     font-style: italic;
+}
+
+.projectCard {
+    width: 300px;
+    height: auto;
 }

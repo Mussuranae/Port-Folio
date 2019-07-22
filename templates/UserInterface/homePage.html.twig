@@ -6,14 +6,6 @@
 
 {% block body %}
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col s12 pictureBackground">
-                <h1>Clélia MANDONNET</h1>
-                <h4>Développeuse Web Junior PHP/Symfony</h4>
-            </div>
-        </div>
-    </div>
 
     <div class="container">
         <div class="row descriptionPart">
@@ -44,8 +36,8 @@
                         <h5>{{ education.title }}</h5>
                         <div class="row">
                             <div class="col s12">
-                                <p class="schoolName">{{ education.school }}</p>
-                                <p class="educationDate"> {{ education.beginDate ? education.beginDate|date('M Y') : '' }} - {{ education.endDate ? education.endDate|date('M Y') : '' }}</p>
+                                <p class="boldText">{{ education.school }}</p>
+                                <p class="italicText"> {{ education.beginDate ? education.beginDate|date('M Y') : '' }} - {{ education.endDate ? education.endDate|date('M Y') : '' }}</p>
                                 <p>{{ education.description }}</p>
                             </div>
                         </div>
@@ -56,77 +48,47 @@
 
 
             <div id="Experience" class="col s12">
+                {% for experience in experiences %}
                 <div class="row">
-
-                    <div class="col s6">
+                    <div class="col s6 offset-s3">
                         <div class="card horizontal">
-                            <div class="card-image">
-                                <img src="https://lorempixel.com/150/250/nature/6">
-                            </div>
                             <div class="card-stacked">
                                 <div class="card-content">
-                                    <h5>Titre du poste</h5>
-                                    <p>I am a very simple card. I am good at containing small bits of information.</p>
+                                    <h5>{{ experience.post }}</h5>
+                                    <p class="boldText">{{ experience.company }}</p>
+                                    <p>{{ experience.description }}</p>
                                 </div>
                                 <div class="card-action">
-                                    <p>Date de l'emploi</p>
+                                    <p class="italicText">{{ experience.beginDate ? experience.beginDate|date('M Y') : ''  }} - {{ experience.endDate ? experience.endDate|date('M Y') : '' }}</p>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+                {% endfor %}
+            </div>
 
-                    <div class="col s6 offset-s6">
-                        <div class="card horizontal">
-                            <div class="card-stacked">
-                                <div class="card-content">
-                                    <h5>Titre du poste</h5>
-                                    <p>I am a very simple card. I am good at containing small bits of information.</p>
-                                </div>
-                                <div class="card-action">
-                                    <p>Date de l'emploi</p>
-                                </div>
-                            </div>
+
+            <div id="Projects" class="col s12">
+                <div class="row">
+                    {% for project in projects %}
+                    <div class="col s12 m6 l3">
+                        <div class="card projectCard">
                             <div class="card-image">
-                                <img src="https://lorempixel.com/100/190/nature/6">
+                                <img src="{{ project.picture }}">
+                                <span class="card-title">{{ project.title }}</span>
+                                <a href="{{ project.gitHubLink }}" class="btn-floating halfway-fab waves-effect waves-light red"><i class="fab fa-github"></i></a>
+                            </div>
+                            <div class="card-content">
+                                <p>{{ project.description }}</p>
                             </div>
                         </div>
                     </div>
-
-                    <div class="col s6">
-                        <div class="card horizontal">
-                            <div class="card-stacked">
-                                <div class="card-content">
-                                    <h5>Titre du poste</h5>
-                                    <p>I am a very simple card. I am good at containing small bits of information.</p>
-                                </div>
-                                <div class="card-action">
-                                    <p>Date de l'emploi</p>
-                                </div>
-                            </div>
-                            <div class="card-image">
-                                <img src="https://lorempixel.com/100/190/nature/6">
-                            </div>
-                        </div>
-                    </div>
-
+                    {% endfor %}
                 </div>
             </div>
-            <div id="Projects" class="col s12">Test 3</div>
             <div id="Skills" class="col s12">Test 4</div>
         </div>
-    </div>
-
-
-    <div class="fixed-action-btn">
-        <a class="btn-floating btn-large red">
-            <i class="large material-icons">mode_edit</i>
-        </a>
-        <ul>
-            <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
-            <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
-            <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
-            <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
-        </ul>
     </div>
 
 {% endblock %}
