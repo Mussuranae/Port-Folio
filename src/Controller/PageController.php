@@ -2,11 +2,13 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
 use App\Repository\SkillRepository;
 use App\Repository\ProjectRepository;
 use App\Repository\EducationRepository;
 use App\Repository\ExperienceRepository;
 
+use App\Repository\UserRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -35,6 +37,9 @@ class PageController extends AbstractController
         SkillRepository $skillRepository
     )
     {
+        $user = new User();
+        $userId = $user->getEmail('mandonnetdev@outlook.com');
+
         $education = $educationRepository->allOrderByDate();
         $experience = $experienceRepository->allOrderByDate();
         $project = $projectRepository->findAll();
@@ -52,8 +57,10 @@ class PageController extends AbstractController
     /**
 $     * @Route("/contact", name="contact_form")
      */
-    public function contactForm(Request $request, \Swift_Mailer $mailer)
+    public function contactForm(Request $request, \Swift_Mailer $mailer, UserRepository $userRepository)
     {
+        $user = $userRepository->findOneBy(['email' => 'mandonnetdev@outlook.com']);
+
         if ($request->getMethod() == 'POST') {
             $nom = $request->request->get('lastname');
             $prenom = $request->request->get('firstname');
@@ -75,7 +82,7 @@ $     * @Route("/contact", name="contact_form")
             return $this->redirectToRoute('contact_form');
         }
 
-        return $this->render('UserInterface/contact.html.twig');
+        return $this->render('UserInterface/contact.html.twig', ['user' => $user]);
     }
 
 }

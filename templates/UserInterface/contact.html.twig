@@ -12,47 +12,63 @@
             {% endfor %}
         {% endfor %}
 
-        <h3 class="center-align">Me contacter</h3>
-
-        <form method="post" action="{{ path('contact_form') }}">
-            <div class="row">
-                <div class="input-field col s6 offset-s3">
-                    <label for="lastname">Nom</label>
-                    <input type="text" class="form-control" id="lastname" name="lastname" required>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s6 offset-s3">
-                    <label for="firstname">Prénom</label>
-                    <input type="text" class="form-control" id="firstname" name="firstname" required>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s6 offset-s3">
-                    <label for="email">Mail</label>
-                    <input type="text" class="form-control" id="email" name="email" required>
-                </div>
+        <div class="row">
+            <div class="col s12">
+                <h3 class="center-align">Me contacter</h3>
             </div>
 
-            <div class="row">
-                <div class="input-field col s6 offset-s3">
-                    <label for="title">Titre</label>
-                    <input type="text" class="form-control" id="title" name="title" required>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s6 offset-s3">
-                    <label for="message">Votre message</label><br>
-                    <input class="form-control materialize-textarea" id="message" name="message" required>
-                </div>
+            <div class="col s6 offset-s3">
+                <p><span class="emailUser">Par email :</span> {{ user.email }}</p>
+                <p><span class="phoneUser">Par téléphone :</span> {{ user.phoneNumber }}</p>
+
             </div>
 
-            <div class="row">
-                <div class="col s2 offset-s8">
-                    <button type="submit" class="light-green darken-1 waves-effect waves-light btn">Envoyer</button>
-                </div>
+            <div class="col s6 offset-s3 center-align">
+                <p class="introContactForm">Directement par ce formulaire de contact !</p>
             </div>
-        </form>
+
+            <div class="col s12">
+            <form method="post" action="{{ path('contact_form') }}">
+                <div class="row">
+                    <div class="input-field col s6 offset-s3">
+                        <label for="lastname">Nom</label>
+                        <input type="text" class="form-control" id="lastname" name="lastname" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6 offset-s3">
+                        <label for="firstname">Prénom</label>
+                        <input type="text" class="form-control" id="firstname" name="firstname" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6 offset-s3">
+                        <label for="email">Mail</label>
+                        <input type="text" class="form-control" id="email" name="email" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s6 offset-s3">
+                        <label for="title">Titre</label>
+                        <input type="text" class="form-control" id="title" name="title" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6 offset-s3">
+                        <label for="message">Votre message</label><br>
+                        <input class="form-control materialize-textarea" id="message" name="message" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col s2 offset-s8">
+                        <button type="submit" class="red waves-effect waves-light btn">Envoyer</button>
+                    </div>
+                </div>
+            </form>
+            </div>
+        </div>
     </div>
 
 {% endblock %}

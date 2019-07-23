@@ -1,7 +1,7 @@
-h1, h3 {
+h1, h2, h3, h4, h5 {
     font-family: 'Roboto', sans-serif;
 }
-p {
+p, span {
     font-family: 'Open Sans', sans-serif;
 }
 
@@ -25,7 +25,12 @@ p {
     font-style: italic;
 }
 
-.projectCard {
-    width: 300px;
-    height: auto;
+.projectTitle {
+    color: #000000 !important;
+    font-size: 15px !important;
+    font-weight: bold !important;
+}
+
+.emailUser, .phoneUser, .introContactForm {
+    font-weight: bold;
 }
