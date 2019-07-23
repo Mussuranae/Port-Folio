@@ -31,11 +31,15 @@ class SkillController extends AbstractController
     public function new(Request $request): Response
     {
         $skill = new Skill();
+
         $form = $this->createForm(SkillType::class, $skill);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $skill->setUserId($this->getUser());
+
+            $skillType = $request->request->get('type');
+            $skill->setType($skillType);
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($skill);
@@ -45,7 +49,7 @@ class SkillController extends AbstractController
         }
 
         return $this->render('AdminInterface/skill/new.html.twig', [
-            'skill' => $skill,
+            'skills' => $skill,
             'formSkill' => $form->createView(),
         ]);
     }

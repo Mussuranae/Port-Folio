@@ -20,7 +20,6 @@ class EducationType extends AbstractType
             ->add('description', TextareaType::class)
             ->add('beginDate', DateType::class, [ 'widget' => 'single_text'])
             ->add('endDate', DateType::class, [ 'widget' => 'single_text'])
-            ->add('userId', HiddenType::class)
         ;
     }
 

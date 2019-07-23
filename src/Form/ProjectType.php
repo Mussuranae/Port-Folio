@@ -19,7 +19,6 @@ class ProjectType extends AbstractType
             ->add('description', TextareaType::class)
             ->add('picture')
             ->add('gitHubLink')
-            ->add('userId', HiddenType::class)
         ;
     }
 

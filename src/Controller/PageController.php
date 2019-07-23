@@ -34,11 +34,11 @@ class PageController extends AbstractController
         EducationRepository $educationRepository,
         ExperienceRepository $experienceRepository,
         ProjectRepository $projectRepository,
-        SkillRepository $skillRepository
+        SkillRepository $skillRepository,
+        UserRepository $userRepository
     )
     {
-        $user = new User();
-        $userId = $user->getEmail('mandonnetdev@outlook.com');
+        $user = $userRepository->findOneBy(['email' => 'mandonnetdev@outlook.com']);
 
         $education = $educationRepository->allOrderByDate();
         $experience = $experienceRepository->allOrderByDate();
@@ -50,7 +50,8 @@ class PageController extends AbstractController
                 'educations' => $education,
                 'experiences' => $experience,
                 'projects' => $project,
-                'skills' => $skill
+                'skills' => $skill,
+                'user' => $user
             ]);
     }
 
