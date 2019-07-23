@@ -17,15 +17,14 @@ class UserType extends AbstractType
     {
         $builder
             ->add('email', EmailType::class)
-            ->add('password', PasswordType::class)
             ->add('lastname')
             ->add('firstname')
-            ->add('address')
-            ->add('zipCode', IntegerType::class)
-            ->add('city')
-            ->add('phoneNumber')
-            ->add('introduction', TextareaType::class)
-            ->add('interest', TextareaType::class)
+            ->add('address', null, ['required' => false])
+            ->add('zipCode', IntegerType::class, ['required' => false])
+            ->add('city', null, ['required' => false])
+            ->add('phoneNumber', null, ['required' => false])
+            ->add('introduction', TextareaType::class, ['required' => false])
+            ->add('interest', TextareaType::class, ['required' => false])
             ->add('gitHubLink')
             ->add('linkedinLink')
         ;
