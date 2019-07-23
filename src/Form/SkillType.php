@@ -15,7 +15,6 @@ class SkillType extends AbstractType
         $builder
             ->add('name')
             ->add('logo')
-            ->add('userId', HiddenType::class)
         ;
     }
 
