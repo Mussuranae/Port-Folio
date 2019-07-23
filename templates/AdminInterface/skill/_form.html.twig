@@ -5,9 +5,13 @@
             {{ form_label(formSkill.name, 'Nom') }}
             {{ form_widget(formSkill.name) }}
         </div>
-        <div class="col s3">
-            {{ form_label(formSkill.type, 'Type') }}
-            {{ form_widget(formSkill.type) }}
+        <div class="input-field col s6">
+            <select name="type" id="typeSelect" style="display: block;">
+                {% for type in constant('App\\Entity\\Skill::TYPE') %}
+                    {{ type }}
+                    <option value="{{ loop.index }}">{{ type }}</option>
+                {% endfor %}
+            </select>
         </div>
         <div class="col s6">
             {{ form_label(formSkill.logo, 'Logo URL') }}

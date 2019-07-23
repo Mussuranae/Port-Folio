@@ -9,6 +9,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Skill
 {
+    const TYPE = [
+        "Techniques" => "Techniques",
+        "Humaines" => "Humaines"
+    ];
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
