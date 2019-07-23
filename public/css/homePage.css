@@ -34,3 +34,9 @@ p, span {
 .emailUser, .phoneUser, .introContactForm {
     font-weight: bold;
 }
+
+.skillPicture {
+    height: 100px;
+    width: 100px;
+    object-fit: contain;
+}

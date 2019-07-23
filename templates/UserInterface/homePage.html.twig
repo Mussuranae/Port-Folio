@@ -87,7 +87,28 @@
                 </div>
             </div>
             <div id="Skills" class="col s12">
-
+                <div class="row">
+                    <h5 class="center-align">Compétences techniques</h5>
+                    {% for skill in skills %}
+                        {% if skill.type == 1 %}
+                                <div class="col s6 m4 l2">
+                                    <a class="tooltipped" data-position="bottom" data-tooltip="{{ skill.name }}">
+                                        <img src="{{ skill.logo }}" class="skillPicture">
+                                    </a>
+                                </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <div class="row">
+                    <h5 class="center-align">Compétences humaines</h5>
+                    {% for skill in skills %}
+                        {% if skill.type == 2 %}
+                            <div class="col s6 m4 l2">
+                                <span>{{ skill.name }}</span>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>
