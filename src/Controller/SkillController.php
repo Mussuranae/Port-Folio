@@ -63,6 +63,10 @@ class SkillController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $skillType = $request->request->get('type');
+            $skill->setType($skillType);
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('skill_index');
