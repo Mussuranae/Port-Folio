@@ -1,0 +1,39 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}PF Project{% endblock %}
+
+{% block body %}
+    <h1>Projets</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Technologies</th>
+                <th>Lien GitHub</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for project in projects %}
+            <tr>
+                <td>{{ project.id }}</td>
+                <td>{{ project.title }}</td>
+                <td>{{ project.technology }}</td>
+                <td>{{ project.gitHubLink }}</td>
+                <td>
+                    <a href="{{ path('project_show', {'id': project.id}) }}" class="waves-effect waves-light btn-small blue lighten-2">Voir</a>
+                    <a href="{{ path('project_edit', {'id': project.id}) }}" class="waves-effect waves-light btn-small blue lighten-2">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">Aucun projet enregistré</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('project_new') }}" class="waves-effect waves-light btn-small blue lighten-2">Nouveau</a>
+{% endblock %}

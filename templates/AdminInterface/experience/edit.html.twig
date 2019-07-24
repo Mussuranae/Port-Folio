@@ -1,0 +1,13 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}PF Experience{% endblock %}
+
+{% block body %}
+    <h1>Modifier une expérience professionnelle</h1>
+
+    {{ include('AdminInterface/experience/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+    <a href="{{ path('experience_index') }}" class="waves-effect waves-light btn-small blue lighten-2">Retour</a>
+
+    {{ include('AdminInterface/experience/_delete_form.html.twig') }}
+{% endblock %}

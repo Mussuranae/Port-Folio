@@ -1,0 +1,33 @@
+{{ form_start(formProject) }}
+
+    <div class="row">
+        <div class="col s6">
+            {{ form_label(formProject.title, 'Titre') }}
+            {{ form_widget(formProject.title) }}
+        </div>
+        <div class="col s6">
+            {{ form_label(formProject.gitHubLink, 'Lien GitHub') }}
+            {{ form_widget(formProject.gitHubLink) }}
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s6">
+            {{ form_label(formProject.picture, 'URL de l\'image') }}
+            {{ form_widget(formProject.picture) }}
+        </div>
+        <div class="col s6">
+            {{ form_label(formProject.technology, 'Technologies') }}
+            {{ form_widget(formProject.technology) }}
+        </div>
+    </div>
+
+    <div class="row">
+        {{ form_label(formProject.description, 'Description') }}
+        {{ form_widget(formProject.description) }}
+    </div>
+
+    <button class="waves-effect waves-light btn-small blue lighten-2">{{ button_label|default('Enregistrer') }}</button>
+
+{{ form_end(formProject) }}

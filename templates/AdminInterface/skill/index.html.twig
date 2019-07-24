@@ -1,0 +1,36 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}PF Skill{% endblock %}
+
+{% block body %}
+    <h1>Compétences</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Type</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for skill in skills %}
+            <tr>
+                <td>{{ skill.id }}</td>
+                <td>{{ skill.name }}</td>
+                <td>{{ skill.type }}</td>
+                <td>
+                    <a href="{{ path('skill_edit', {'id': skill.id}) }}" class="waves-effect waves-light btn-small blue lighten-2">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">Aucune compétence enregistrée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('skill_new') }}" class="waves-effect waves-light btn-small blue lighten-2">Nouveau</a>
+{% endblock %}

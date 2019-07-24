@@ -1,0 +1,13 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}PF Skill{% endblock %}
+
+{% block body %}
+    <h1>Modifier les compétences</h1>
+
+    {{ include('AdminInterface/skill/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+    <a href="{{ path('skill_index') }}" class="waves-effect waves-light btn-small blue lighten-2">Retour</a>
+
+    {{ include('AdminInterface/skill/_delete_form.html.twig') }}
+{% endblock %}

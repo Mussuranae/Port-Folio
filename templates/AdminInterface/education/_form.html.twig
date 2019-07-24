@@ -1,0 +1,32 @@
+{{ form_start(formEducation) }}
+
+    <div class="row">
+        <div class="col s6">
+            {{ form_label(formEducation.school, 'Ecole') }}
+            {{ form_widget(formEducation.school) }}
+        </div>
+        <div class="col s6">
+            {{ form_label(formEducation.title, 'Titre') }}
+            {{ form_widget(formEducation.title) }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s6">
+            {{ form_label(formEducation.beginDate, 'Date de début') }}
+            {{ form_widget(formEducation.beginDate) }}
+        </div>
+        <div class="col s6">
+            {{ form_label(formEducation.endDate, 'Date de fin') }}
+            {{ form_widget(formEducation.endDate) }}
+        </div>
+    </div>
+
+    <div class="row">
+        {{ form_label(formEducation.description, 'Description') }}
+        {{ form_widget(formEducation.description) }}
+    </div>
+
+    <button class="waves-effect waves-light btn-small blue lighten-2">{{ button_label|default('Enregistrer') }}</button>
+
+{{ form_end(formEducation) }}

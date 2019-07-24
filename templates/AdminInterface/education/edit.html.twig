@@ -1,0 +1,13 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}PF Education{% endblock %}
+
+{% block body %}
+    <h1>Modifier une formation</h1>
+
+    {{ include('AdminInterface/education/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+    <a href="{{ path('education_index') }}" class="waves-effect waves-light btn-small blue lighten-2">Retour</a>
+
+    {{ include('AdminInterface/education/_delete_form.html.twig') }}
+{% endblock %}

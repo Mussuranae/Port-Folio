@@ -1,0 +1,13 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}PF Skill{% endblock %}
+
+{% block body %}
+    <h1>Création d'une compétence</h1>
+
+    {{ include('AdminInterface/skill/_form.html.twig') }}
+
+    <a href="{{ path('skill_index') }}" class="waves-effect waves-light btn-small blue lighten-2">Retour</a>
+
+{% endblock %}
+

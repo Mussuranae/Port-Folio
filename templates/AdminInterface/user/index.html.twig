@@ -1,0 +1,47 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}PF User{% endblock %}
+
+{% block body %}
+    <h1>Utilisateurs</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Rôle</th>
+                <th>Email</th>
+                <th>Prénom</th>
+                <th>Nom</th>
+                <th>Téléphone</th>
+                <th>Profil GitHub</th>
+                <th>Profil Linkedin</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.roles[0] }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.firstname }}</td>
+                <td>{{ user.lastname }}</td>
+                <td>{{ user.phoneNumber }}</td>
+                <td>{{ user.gitHubLink }}</td>
+                <td>{{ user.linkedinLink }}</td>
+                <td>
+                    <a href="{{ path('user_show', {'id': user.id}) }}" class="waves-effect waves-light btn-small blue lighten-2">Voir</a>
+                    <a href="{{ path('user_edit', {'id': user.id}) }}" class="waves-effect waves-light btn-small blue lighten-2">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="16">Aucun Utilisateur</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('user_new') }}" class="waves-effect waves-light btn-small blue lighten-2">Nouveau</a>
+{% endblock %}

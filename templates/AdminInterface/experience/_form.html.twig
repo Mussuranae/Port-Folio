@@ -1,0 +1,32 @@
+{{ form_start(formXP) }}
+
+    <div class="row">
+        <div class="col s6">
+            {{ form_label(formXP.company, 'Entreprise') }}
+            {{ form_widget(formXP.company) }}
+        </div>
+        <div class="col s6">
+            {{ form_label(formXP.post, 'Poste') }}
+            {{ form_widget(formXP.post) }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s6">
+            {{ form_label(formXP.beginDate, 'Date de début') }}
+            {{ form_widget(formXP.beginDate) }}
+        </div>
+        <div class="col s6">
+            {{ form_label(formXP.endDate, 'Date de fin') }}
+            {{ form_widget(formXP.endDate) }}
+        </div>
+    </div>
+
+    <div class="row">
+        {{ form_label(formXP.description, 'Description') }}
+        {{ form_widget(formXP.description) }}
+    </div>
+
+    <button class="waves-effect waves-light btn-small blue lighten-2">{{ button_label|default('Enregistrer') }}</button>
+
+{{ form_end(formXP) }}

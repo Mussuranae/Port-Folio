@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Port-Folio{% endblock %}</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"  media="screen,projection"/>
+    <link type="text/css" href="/css/adminPage.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto&display=swap" rel="stylesheet">
+
+    {% block stylesheets %}{% endblock %}
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+</head>
+<body>
+
+{% include 'AdminInterface/navbar.html.twig' %}
+
+    <div class="container">
+    {% block body %}
+        <h1>Bienvenue sur la partie administrateur !</h1>
+        <div class="row">
+            <div class="col s12 m6 l4">
+                <a href="{{ path('user_index') }}">
+                    <div class="card blue darken-2">
+                        <div class="card-content white-text">
+                            <span class="card-title flow-text">Utilisateurs</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col s12 m6 l4">
+                <a href="{{ path('education_index') }}">
+                    <div class="card blue darken-2">
+                        <div class="card-content white-text">
+                            <span class="card-title flow-text">Formations</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col s12 m6 l4">
+                <a href="{{ path('experience_index') }}">
+                    <div class="card blue darken-2">
+                        <div class="card-content white-text">
+                            <span class="card-title flow-text">Expériences</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col s12 m6 l4">
+                <a href="{{ path('skill_index') }}">
+                    <div class="card blue darken-2">
+                        <div class="card-content white-text">
+                            <span class="card-title flow-text">Compétences</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col s12 m6 l4">
+                <a href="{{ path('project_index') }}">
+                    <div class="card blue darken-2">
+                        <div class="card-content white-text">
+                            <span class="card-title flow-text">Projets</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    {% endblock %}
+    </div>
+
+    <!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.js"></script>
+    <script src="https://kit.fontawesome.com/69d78de932.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('select').formSelect();
+        });
+    </script>
+
+{% block javascripts %}{% endblock %}
+
+</body>
+</html>
